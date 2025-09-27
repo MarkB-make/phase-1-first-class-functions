@@ -13,6 +13,9 @@ describe("index", () => {
 
       expect(spy).to.have.been.called();
     });
+    function receivesAFunction(callback) {
+      callback();
+    } 
   });
 
   describe("returnsANamedFunction()", () => {
@@ -29,6 +32,12 @@ describe("index", () => {
     it("returns a named function", () => {
       expect(fn.name).not.to.eql("");
     });
+    function returnsANamedFunction() {
+      function namedFn () {
+        return "I am a named Fn"
+      }
+      return namedFn;
+    }
   });
 
   describe("returnsAnAnonymousFunction()", () => {
@@ -45,5 +54,10 @@ describe("index", () => {
     it("returns an anonymous function", () => {
       expect(fn.name).to.eql("");
     });
+    function returnsAnAnonymousFunction() {
+      return function() {
+        return "I am an anonymous Function"
+      }
+    }
   });
 });
